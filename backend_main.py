@@ -2,7 +2,8 @@
 from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, Field
+from pydantic.functional_validators import field_validator
 from typing import Optional, List, Dict, Any
 import uvicorn
 from datetime import datetime
@@ -70,8 +71,8 @@ class TriageRequest(BaseModel):
     age: Optional[int] = Field(None, ge=0, le=120, description="Patient age in years")
     allergies: Optional[str] = Field(None, max_length=500, description="Known allergies")
     
-    @validator('symptoms')
-    def symptoms_must_not_be_empty(cls, v):
+    @field_validator('symptoms')
+    def symptoms_must_not_be_empty(cls, v: str) -> str:
         if not v or not v.strip():
             raise ValueError('Symptoms cannot be empty')
         return v.strip()
@@ -80,8 +81,8 @@ class ChatRequest(BaseModel):
     """Request model for chat interactions"""
     message: str = Field(..., min_length=1, max_length=500, description="User message")
     
-    @validator('message')
-    def message_must_not_be_empty(cls, v):
+    @field_validator('message')
+    def message_must_not_be_empty(cls, v: str) -> str:
         if not v or not v.strip():
             raise ValueError('Message cannot be empty')
         return v.strip()
