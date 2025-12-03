@@ -48,15 +48,22 @@
       "status": "success",
       "urgency_level": "auto-soin",
       "timestamp": "2025-12-02T20:04:30.420221"
+    },
+    {
+      "endpoint": "/triage",
+      "latency": 0.017008,
+      "status": "success",
+      "urgency_level": "auto-soin",
+      "timestamp": "2025-12-03T14:37:54.476201"
     }
   ],
   "errors": [],
   "urgency_distribution": {
     "urgence": 2,
     "consultation": 2,
-    "auto-soin": 3
+    "auto-soin": 4
   },
-  "total_requests": 7,
-  "average_latency": 0.0069975714285714285,
+  "total_requests": 8,
+  "average_latency": 0.008248875,
   "start_time": "2025-12-02T17:53:20.470486"
 }
