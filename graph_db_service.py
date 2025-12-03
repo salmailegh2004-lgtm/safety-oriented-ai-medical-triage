@@ -25,83 +25,97 @@ class GraphDBService:
         self.driver = None
         
         try:
-            self.driver = GraphDatabase.driver(uri, auth=(user, password))
-            self.driver.verify_connectivity()
-            logger.info("Connected to Neo4j database")
-            self._initialize_medical_graph()
+            from neo4j import GraphDatabase
+            # Create driver with short timeout
+            self.driver = GraphDatabase.driver(
+                uri, 
+                auth=(user, password),
+                connection_timeout=2,  # 2 second timeout
+                max_connection_lifetime=10
+            )
+            # Don't verify connectivity - let it fail lazily on first use
+            logger.info("Neo4j driver created (will initialize on first query)")
+            # Skip initialization - don't try to connect during startup
+            # self._initialize_medical_graph()
         except Exception as e:
-            logger.warning(f"Neo4j not available: {e}. Graph features will be limited.")
+            logger.warning(f"Neo4j not available: {str(e)[:80]}. Graph features will be limited.")
             self.driver = None
+            # Don't raise - allow system to continue without Neo4j
     
     def _initialize_medical_graph(self):
         """Initialize medical knowledge graph with nodes and relationships"""
         if not self.driver:
             return
         
-        with self.driver.session() as session:
-            # Create constraints and indexes
-            session.run("""
-                CREATE CONSTRAINT IF NOT EXISTS 
-                FOR (s:Symptom) REQUIRE s.name IS UNIQUE
-            """)
-            session.run("""
-                CREATE CONSTRAINT IF NOT EXISTS 
-                FOR (d:Disease) REQUIRE d.name IS UNIQUE
-            """)
-            
-            # Add sample medical knowledge
-            session.run("""
-                // Common cold
-                MERGE (cold:Disease {name: 'Common Cold', urgency: 'LOW'})
-                MERGE (runnyNose:Symptom {name: 'Runny Nose'})
-                MERGE (soreThroat:Symptom {name: 'Sore Throat'})
-                MERGE (mildCough:Symptom {name: 'Mild Cough'})
-                MERGE (runnyNose)-[:INDICATES {confidence: 0.7}]->(cold)
-                MERGE (soreThroat)-[:INDICATES {confidence: 0.6}]->(cold)
-                MERGE (mildCough)-[:INDICATES {confidence: 0.5}]->(cold)
+        try:
+            with self.driver.session() as session:
+                # Create constraints and indexes
+                session.run("""
+                    CREATE CONSTRAINT IF NOT EXISTS 
+                    FOR (s:Symptom) REQUIRE s.name IS UNIQUE
+                """)
+                session.run("""
+                    CREATE CONSTRAINT IF NOT EXISTS 
+                    FOR (d:Disease) REQUIRE d.name IS UNIQUE
+                """)
                 
-                // Heart attack
-                MERGE (heartAttack:Disease {name: 'Heart Attack', urgency: 'CRITICAL'})
-                MERGE (chestPain:Symptom {name: 'Chest Pain'})
-                MERGE (breathShortness:Symptom {name: 'Shortness of Breath'})
-                MERGE (sweating:Symptom {name: 'Excessive Sweating'})
-                MERGE (armPain:Symptom {name: 'Arm Pain'})
-                MERGE (chestPain)-[:INDICATES {confidence: 0.9}]->(heartAttack)
-                MERGE (breathShortness)-[:INDICATES {confidence: 0.85}]->(heartAttack)
-                MERGE (sweating)-[:INDICATES {confidence: 0.7}]->(heartAttack)
-                MERGE (armPain)-[:INDICATES {confidence: 0.8}]->(heartAttack)
+                # Add sample medical knowledge
+                session.run("""
+                    // Common cold
+                    MERGE (cold:Disease {name: 'Common Cold', urgency: 'LOW'})
+                    MERGE (runnyNose:Symptom {name: 'Runny Nose'})
+                    MERGE (soreThroat:Symptom {name: 'Sore Throat'})
+                    MERGE (mildCough:Symptom {name: 'Mild Cough'})
+                    MERGE (runnyNose)-[:INDICATES {confidence: 0.7}]->(cold)
+                    MERGE (soreThroat)-[:INDICATES {confidence: 0.6}]->(cold)
+                    MERGE (mildCough)-[:INDICATES {confidence: 0.5}]->(cold)
+                    
+                    // Heart attack
+                    MERGE (heartAttack:Disease {name: 'Heart Attack', urgency: 'CRITICAL'})
+                    MERGE (chestPain:Symptom {name: 'Chest Pain'})
+                    MERGE (breathShortness:Symptom {name: 'Shortness of Breath'})
+                    MERGE (sweating:Symptom {name: 'Excessive Sweating'})
+                    MERGE (armPain:Symptom {name: 'Arm Pain'})
+                    MERGE (chestPain)-[:INDICATES {confidence: 0.9}]->(heartAttack)
+                    MERGE (breathShortness)-[:INDICATES {confidence: 0.85}]->(heartAttack)
+                    MERGE (sweating)-[:INDICATES {confidence: 0.7}]->(heartAttack)
+                    MERGE (armPain)-[:INDICATES {confidence: 0.8}]->(heartAttack)
+                    
+                    // Stroke
+                    MERGE (stroke:Disease {name: 'Stroke', urgency: 'CRITICAL'})
+                    MERGE (severeHeadache:Symptom {name: 'Severe Headache'})
+                    MERGE (confusion:Symptom {name: 'Confusion'})
+                    MERGE (visionChanges:Symptom {name: 'Vision Changes'})
+                    MERGE (speechDifficulty:Symptom {name: 'Speech Difficulty'})
+                    MERGE (severeHeadache)-[:INDICATES {confidence: 0.85}]->(stroke)
+                    MERGE (confusion)-[:INDICATES {confidence: 0.9}]->(stroke)
+                    MERGE (visionChanges)-[:INDICATES {confidence: 0.8}]->(stroke)
+                    MERGE (speechDifficulty)-[:INDICATES {confidence: 0.95}]->(stroke)
+                    
+                    // Flu
+                    MERGE (flu:Disease {name: 'Influenza', urgency: 'MODERATE'})
+                    MERGE (fever:Symptom {name: 'Fever'})
+                    MERGE (bodyAches:Symptom {name: 'Body Aches'})
+                    MERGE (fatigue:Symptom {name: 'Fatigue'})
+                    MERGE (fever)-[:INDICATES {confidence: 0.8}]->(flu)
+                    MERGE (bodyAches)-[:INDICATES {confidence: 0.75}]->(flu)
+                    MERGE (fatigue)-[:INDICATES {confidence: 0.7}]->(flu)
+                    
+                    // Allergic reaction
+                    MERGE (allergy:Disease {name: 'Severe Allergic Reaction', urgency: 'CRITICAL'})
+                    MERGE (faceSwelling:Symptom {name: 'Facial Swelling'})
+                    MERGE (breathDifficulty:Symptom {name: 'Difficulty Breathing'})
+                    MERGE (hives:Symptom {name: 'Hives'})
+                    MERGE (faceSwelling)-[:INDICATES {confidence: 0.95}]->(allergy)
+                    MERGE (breathDifficulty)-[:INDICATES {confidence: 0.98}]->(allergy)
+                    MERGE (hives)-[:INDICATES {confidence: 0.85}]->(allergy)
+                """)
                 
-                // Stroke
-                MERGE (stroke:Disease {name: 'Stroke', urgency: 'CRITICAL'})
-                MERGE (severeHeadache:Symptom {name: 'Severe Headache'})
-                MERGE (confusion:Symptom {name: 'Confusion'})
-                MERGE (visionChanges:Symptom {name: 'Vision Changes'})
-                MERGE (speechDifficulty:Symptom {name: 'Speech Difficulty'})
-                MERGE (severeHeadache)-[:INDICATES {confidence: 0.85}]->(stroke)
-                MERGE (confusion)-[:INDICATES {confidence: 0.9}]->(stroke)
-                MERGE (visionChanges)-[:INDICATES {confidence: 0.8}]->(stroke)
-                MERGE (speechDifficulty)-[:INDICATES {confidence: 0.95}]->(stroke)
-                
-                // Flu
-                MERGE (flu:Disease {name: 'Influenza', urgency: 'MODERATE'})
-                MERGE (fever:Symptom {name: 'Fever'})
-                MERGE (bodyAches:Symptom {name: 'Body Aches'})
-                MERGE (fatigue:Symptom {name: 'Fatigue'})
-                MERGE (fever)-[:INDICATES {confidence: 0.8}]->(flu)
-                MERGE (bodyAches)-[:INDICATES {confidence: 0.75}]->(flu)
-                MERGE (fatigue)-[:INDICATES {confidence: 0.7}]->(flu)
-                
-                // Allergic reaction
-                MERGE (allergy:Disease {name: 'Severe Allergic Reaction', urgency: 'CRITICAL'})
-                MERGE (faceSwelling:Symptom {name: 'Facial Swelling'})
-                MERGE (breathDifficulty:Symptom {name: 'Difficulty Breathing'})
-                MERGE (hives:Symptom {name: 'Hives'})
-                MERGE (faceSwelling)-[:INDICATES {confidence: 0.95}]->(allergy)
-                MERGE (breathDifficulty)-[:INDICATES {confidence: 0.98}]->(allergy)
-                MERGE (hives)-[:INDICATES {confidence: 0.85}]->(allergy)
-            """)
-            
-            logger.info("Medical knowledge graph initialized")
+                logger.info("Medical knowledge graph initialized")
+        except Exception as e:
+            logger.warning(f"Failed to initialize medical graph: {str(e)[:80]}")
+            # Clear driver if initialization fails
+            self.driver = None
     
     def find_related_diseases(self, symptoms: List[str]) -> List[Dict]:
         """

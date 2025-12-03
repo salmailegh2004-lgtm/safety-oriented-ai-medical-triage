@@ -46,8 +46,9 @@ class TriageEngine:
             logger.error(f"Failed to initialize vector database: {e}")
             self.vector_db = None
         
+        # Initialize Graph Database (Neo4j) - optional
+        self.graph_db = None
         try:
-            # Initialize Graph Database (Neo4j)
             self.graph_db = GraphDBService(
                 uri="bolt://localhost:7687",
                 user="neo4j",
@@ -55,7 +56,7 @@ class TriageEngine:
             )
             logger.info("✓ Neo4j graph database initialized")
         except Exception as e:
-            logger.warning(f"Neo4j not available: {e}. Using fallback.")
+            logger.warning(f"Neo4j not available: {str(e)[:100]}. Using fallback.")
             self.graph_db = None
         
         logger.info("TriageEngine initialization complete")

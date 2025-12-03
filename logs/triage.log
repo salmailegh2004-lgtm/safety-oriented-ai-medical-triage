@@ -380,3 +380,197 @@ Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reas
 2025-12-03 15:17:09,365 - __main__ - INFO - [backend_main.py:144] - ================================================================================
 2025-12-03 15:17:09,366 - __main__ - INFO - [backend_main.py:145] - Server ready to accept connections
 2025-12-03 15:17:09,366 - __main__ - INFO - [backend_main.py:146] - ================================================================================
+2025-12-03 15:21:15,565 - triage_engine - INFO - [triage_engine.py:31] - Initializing AI-powered TriageEngine...
+2025-12-03 15:21:15,565 - ai_service - INFO - [ai_service.py:29] - AIService initialized with model: llama3.2
+2025-12-03 15:21:15,565 - triage_engine - INFO - [triage_engine.py:36] - ✓ Ollama AI service initialized
+2025-12-03 15:21:15,565 - vector_db_service - INFO - [vector_db_service.py:29] - Loading sentence transformer model...
+2025-12-03 15:21:15,566 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:219] - Use pytorch device_name: cpu
+2025-12-03 15:21:15,566 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:227] - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-12-03 15:21:18,488 - vector_db_service - INFO - [vector_db_service.py:169] - Vector database loaded: 10 documents
+2025-12-03 15:21:18,489 - vector_db_service - INFO - [vector_db_service.py:41] - VectorDB initialized with 10 documents
+2025-12-03 15:21:18,489 - triage_engine - INFO - [triage_engine.py:44] - ✓ FAISS vector database initialized
+2025-12-03 15:21:22,597 - graph_db_service - WARNING - [graph_db_service.py:33] - Neo4j not available: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 10061] No connection could be made because the target machine actively refused it)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 10061] No connection could be made because the target machine actively refused it). Graph features will be limited.
+2025-12-03 15:21:22,597 - triage_engine - INFO - [triage_engine.py:56] - ✓ Neo4j graph database initialized
+2025-12-03 15:21:22,597 - triage_engine - INFO - [triage_engine.py:61] - TriageEngine initialization complete
+2025-12-03 15:21:22,597 - __main__ - INFO - [backend_main.py:39] - Services initialized successfully
+2025-12-03 15:21:22,607 - __main__ - INFO - [backend_main.py:411] - Created required directories: logs/, data/
+2025-12-03 15:21:22,607 - __main__ - INFO - [backend_main.py:416] - ================================================================================
+2025-12-03 15:21:22,607 - __main__ - INFO - [backend_main.py:417] - Starting Medical Triage Assistant API Server
+2025-12-03 15:21:22,607 - __main__ - INFO - [backend_main.py:418] - Environment: Development
+2025-12-03 15:21:22,607 - __main__ - INFO - [backend_main.py:419] - Python Version: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+2025-12-03 15:21:22,607 - __main__ - INFO - [backend_main.py:420] - Host: 0.0.0.0 | Port: 8000
+2025-12-03 15:21:22,608 - __main__ - INFO - [backend_main.py:421] - API Documentation: http://localhost:8000/docs
+2025-12-03 15:21:22,608 - __main__ - INFO - [backend_main.py:422] - ================================================================================
+2025-12-03 15:21:22,655 - __main__ - INFO - [backend_main.py:120] - ================================================================================
+2025-12-03 15:21:22,655 - __main__ - INFO - [backend_main.py:121] - MEDICAL TRIAGE ASSISTANT - STARTUP SEQUENCE
+2025-12-03 15:21:22,655 - __main__ - INFO - [backend_main.py:122] - ================================================================================
+2025-12-03 15:21:22,656 - __main__ - INFO - [backend_main.py:128] - ✓ Required directories validated
+2025-12-03 15:21:22,656 - __main__ - INFO - [backend_main.py:134] - ✓ Core services initialized successfully
+2025-12-03 15:21:22,656 - __main__ - INFO - [backend_main.py:135] -   - TriageEngine: Ready
+2025-12-03 15:21:22,656 - __main__ - INFO - [backend_main.py:136] -   - MonitoringService: Ready
+2025-12-03 15:21:22,656 - __main__ - INFO - [backend_main.py:141] - ✓ CORS configured for: http://localhost:3000
+2025-12-03 15:21:22,656 - __main__ - INFO - [backend_main.py:142] - ✓ API documentation: http://localhost:8000/docs
+2025-12-03 15:21:22,656 - __main__ - INFO - [backend_main.py:143] - ✓ History file: data\triage_history.json
+2025-12-03 15:21:22,657 - __main__ - INFO - [backend_main.py:144] - ================================================================================
+2025-12-03 15:21:22,657 - __main__ - INFO - [backend_main.py:145] - Server ready to accept connections
+2025-12-03 15:21:22,657 - __main__ - INFO - [backend_main.py:146] - ================================================================================
+2025-12-03 15:21:22,658 - __main__ - INFO - [backend_main.py:151] - ================================================================================
+2025-12-03 15:21:22,658 - __main__ - INFO - [backend_main.py:152] - MEDICAL TRIAGE ASSISTANT - SHUTDOWN SEQUENCE
+2025-12-03 15:21:22,658 - __main__ - INFO - [backend_main.py:153] - ================================================================================
+2025-12-03 15:21:22,658 - __main__ - INFO - [backend_main.py:158] - Final Statistics:
+2025-12-03 15:21:22,658 - __main__ - INFO - [backend_main.py:159] -   - Total Requests: 8
+2025-12-03 15:21:22,658 - __main__ - INFO - [backend_main.py:160] -   - Average Latency: 0.008s
+2025-12-03 15:21:22,658 - __main__ - INFO - [backend_main.py:161] -   - Error Rate: 0.00%
+2025-12-03 15:21:22,659 - __main__ - INFO - [backend_main.py:165] - ✓ Metrics saved successfully
+2025-12-03 15:21:22,659 - __main__ - INFO - [backend_main.py:169] - ================================================================================
+2025-12-03 15:21:22,660 - __main__ - INFO - [backend_main.py:170] - Server shutdown complete
+2025-12-03 15:21:22,660 - __main__ - INFO - [backend_main.py:171] - ================================================================================
+2025-12-03 15:21:55,289 - triage_engine - INFO - [triage_engine.py:31] - Initializing AI-powered TriageEngine...
+2025-12-03 15:21:55,289 - ai_service - INFO - [ai_service.py:29] - AIService initialized with model: llama3.2
+2025-12-03 15:21:55,289 - triage_engine - INFO - [triage_engine.py:36] - ✓ Ollama AI service initialized
+2025-12-03 15:21:55,289 - vector_db_service - INFO - [vector_db_service.py:29] - Loading sentence transformer model...
+2025-12-03 15:21:55,290 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:219] - Use pytorch device_name: cpu
+2025-12-03 15:21:55,290 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:227] - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-12-03 15:21:57,845 - vector_db_service - INFO - [vector_db_service.py:169] - Vector database loaded: 10 documents
+2025-12-03 15:21:57,845 - vector_db_service - INFO - [vector_db_service.py:41] - VectorDB initialized with 10 documents
+2025-12-03 15:21:57,845 - triage_engine - INFO - [triage_engine.py:44] - ✓ FAISS vector database initialized
+2025-12-03 15:22:38,308 - triage_engine - INFO - [triage_engine.py:31] - Initializing AI-powered TriageEngine...
+2025-12-03 15:22:38,308 - ai_service - INFO - [ai_service.py:29] - AIService initialized with model: llama3.2
+2025-12-03 15:22:38,308 - triage_engine - INFO - [triage_engine.py:36] - ✓ Ollama AI service initialized
+2025-12-03 15:22:38,308 - vector_db_service - INFO - [vector_db_service.py:29] - Loading sentence transformer model...
+2025-12-03 15:22:38,309 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:219] - Use pytorch device_name: cpu
+2025-12-03 15:22:38,309 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:227] - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-12-03 15:22:41,253 - vector_db_service - INFO - [vector_db_service.py:169] - Vector database loaded: 10 documents
+2025-12-03 15:22:41,253 - vector_db_service - INFO - [vector_db_service.py:41] - VectorDB initialized with 10 documents
+2025-12-03 15:22:41,253 - triage_engine - INFO - [triage_engine.py:44] - ✓ FAISS vector database initialized
+2025-12-03 15:23:12,325 - triage_engine - INFO - [triage_engine.py:31] - Initializing AI-powered TriageEngine...
+2025-12-03 15:23:12,325 - ai_service - INFO - [ai_service.py:29] - AIService initialized with model: llama3.2
+2025-12-03 15:23:12,325 - triage_engine - INFO - [triage_engine.py:36] - ✓ Ollama AI service initialized
+2025-12-03 15:23:12,326 - vector_db_service - INFO - [vector_db_service.py:29] - Loading sentence transformer model...
+2025-12-03 15:23:12,326 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:219] - Use pytorch device_name: cpu
+2025-12-03 15:23:12,326 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:227] - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-12-03 15:23:15,707 - vector_db_service - INFO - [vector_db_service.py:169] - Vector database loaded: 10 documents
+2025-12-03 15:23:15,707 - vector_db_service - INFO - [vector_db_service.py:41] - VectorDB initialized with 10 documents
+2025-12-03 15:23:15,707 - triage_engine - INFO - [triage_engine.py:44] - ✓ FAISS vector database initialized
+2025-12-03 15:23:48,691 - triage_engine - INFO - [triage_engine.py:31] - Initializing AI-powered TriageEngine...
+2025-12-03 15:23:48,692 - ai_service - INFO - [ai_service.py:29] - AIService initialized with model: llama3.2
+2025-12-03 15:23:48,692 - triage_engine - INFO - [triage_engine.py:36] - ✓ Ollama AI service initialized
+2025-12-03 15:23:48,692 - vector_db_service - INFO - [vector_db_service.py:29] - Loading sentence transformer model...
+2025-12-03 15:23:48,693 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:219] - Use pytorch device_name: cpu
+2025-12-03 15:23:48,693 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:227] - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-12-03 15:23:51,221 - vector_db_service - INFO - [vector_db_service.py:169] - Vector database loaded: 10 documents
+2025-12-03 15:23:51,221 - vector_db_service - INFO - [vector_db_service.py:41] - VectorDB initialized with 10 documents
+2025-12-03 15:23:51,221 - triage_engine - INFO - [triage_engine.py:44] - ✓ FAISS vector database initialized
+2025-12-03 15:23:51,222 - graph_db_service - INFO - [graph_db_service.py:30] - Neo4j driver created (connectivity will be verified on first use)
+2025-12-03 15:25:57,403 - triage_engine - INFO - [triage_engine.py:31] - Initializing AI-powered TriageEngine...
+2025-12-03 15:25:57,403 - ai_service - INFO - [ai_service.py:29] - AIService initialized with model: llama3.2
+2025-12-03 15:25:57,403 - triage_engine - INFO - [triage_engine.py:36] - ✓ Ollama AI service initialized
+2025-12-03 15:25:57,403 - vector_db_service - INFO - [vector_db_service.py:29] - Loading sentence transformer model...
+2025-12-03 15:25:57,406 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:219] - Use pytorch device_name: cpu
+2025-12-03 15:25:57,406 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:227] - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-12-03 15:26:01,692 - vector_db_service - INFO - [vector_db_service.py:169] - Vector database loaded: 10 documents
+2025-12-03 15:26:01,692 - vector_db_service - INFO - [vector_db_service.py:41] - VectorDB initialized with 10 documents
+2025-12-03 15:26:01,692 - triage_engine - INFO - [triage_engine.py:44] - ✓ FAISS vector database initialized
+2025-12-03 15:26:01,693 - graph_db_service - INFO - [graph_db_service.py:30] - Neo4j driver created (connectivity will be verified on first use)
+2025-12-03 15:26:37,333 - triage_engine - INFO - [triage_engine.py:31] - Initializing AI-powered TriageEngine...
+2025-12-03 15:26:37,333 - ai_service - INFO - [ai_service.py:29] - AIService initialized with model: llama3.2
+2025-12-03 15:26:37,333 - triage_engine - INFO - [triage_engine.py:36] - ✓ Ollama AI service initialized
+2025-12-03 15:26:37,334 - vector_db_service - INFO - [vector_db_service.py:29] - Loading sentence transformer model...
+2025-12-03 15:26:37,334 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:219] - Use pytorch device_name: cpu
+2025-12-03 15:26:37,335 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:227] - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-12-03 15:26:39,977 - vector_db_service - INFO - [vector_db_service.py:169] - Vector database loaded: 10 documents
+2025-12-03 15:26:39,977 - vector_db_service - INFO - [vector_db_service.py:41] - VectorDB initialized with 10 documents
+2025-12-03 15:26:39,977 - triage_engine - INFO - [triage_engine.py:44] - ✓ FAISS vector database initialized
+2025-12-03 15:26:39,977 - graph_db_service - INFO - [graph_db_service.py:37] - Neo4j driver created (connectivity will be verified on first use)
+2025-12-03 15:27:19,451 - triage_engine - INFO - [triage_engine.py:31] - Initializing AI-powered TriageEngine...
+2025-12-03 15:27:19,451 - ai_service - INFO - [ai_service.py:29] - AIService initialized with model: llama3.2
+2025-12-03 15:27:19,451 - triage_engine - INFO - [triage_engine.py:36] - ✓ Ollama AI service initialized
+2025-12-03 15:27:19,451 - vector_db_service - INFO - [vector_db_service.py:29] - Loading sentence transformer model...
+2025-12-03 15:27:19,452 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:219] - Use pytorch device_name: cpu
+2025-12-03 15:27:19,452 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:227] - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-12-03 15:27:23,296 - vector_db_service - INFO - [vector_db_service.py:169] - Vector database loaded: 10 documents
+2025-12-03 15:27:23,296 - vector_db_service - INFO - [vector_db_service.py:41] - VectorDB initialized with 10 documents
+2025-12-03 15:27:23,296 - triage_engine - INFO - [triage_engine.py:44] - ✓ FAISS vector database initialized
+2025-12-03 15:27:23,296 - graph_db_service - INFO - [graph_db_service.py:37] - Neo4j driver created (will initialize on first query)
+2025-12-03 15:27:23,296 - triage_engine - INFO - [triage_engine.py:57] - ✓ Neo4j graph database initialized
+2025-12-03 15:27:23,296 - triage_engine - INFO - [triage_engine.py:62] - TriageEngine initialization complete
+2025-12-03 15:27:23,298 - __main__ - INFO - [backend_main.py:39] - Services initialized successfully
+2025-12-03 15:27:23,303 - __main__ - INFO - [backend_main.py:411] - Created required directories: logs/, data/
+2025-12-03 15:27:23,303 - __main__ - INFO - [backend_main.py:416] - ================================================================================
+2025-12-03 15:27:23,303 - __main__ - INFO - [backend_main.py:417] - Starting Medical Triage Assistant API Server
+2025-12-03 15:27:23,303 - __main__ - INFO - [backend_main.py:418] - Environment: Development
+2025-12-03 15:27:23,303 - __main__ - INFO - [backend_main.py:419] - Python Version: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+2025-12-03 15:27:23,303 - __main__ - INFO - [backend_main.py:420] - Host: 0.0.0.0 | Port: 8000
+2025-12-03 15:27:23,303 - __main__ - INFO - [backend_main.py:421] - API Documentation: http://localhost:8000/docs
+2025-12-03 15:27:23,303 - __main__ - INFO - [backend_main.py:422] - ================================================================================
+2025-12-03 15:27:23,333 - __main__ - INFO - [backend_main.py:120] - ================================================================================
+2025-12-03 15:27:23,334 - __main__ - INFO - [backend_main.py:121] - MEDICAL TRIAGE ASSISTANT - STARTUP SEQUENCE
+2025-12-03 15:27:23,334 - __main__ - INFO - [backend_main.py:122] - ================================================================================
+2025-12-03 15:27:23,334 - __main__ - INFO - [backend_main.py:128] - ✓ Required directories validated
+2025-12-03 15:27:23,334 - __main__ - INFO - [backend_main.py:134] - ✓ Core services initialized successfully
+2025-12-03 15:27:23,334 - __main__ - INFO - [backend_main.py:135] -   - TriageEngine: Ready
+2025-12-03 15:27:23,334 - __main__ - INFO - [backend_main.py:136] -   - MonitoringService: Ready
+2025-12-03 15:27:23,335 - __main__ - INFO - [backend_main.py:141] - ✓ CORS configured for: http://localhost:3000
+2025-12-03 15:27:23,335 - __main__ - INFO - [backend_main.py:142] - ✓ API documentation: http://localhost:8000/docs
+2025-12-03 15:27:23,335 - __main__ - INFO - [backend_main.py:143] - ✓ History file: data\triage_history.json
+2025-12-03 15:27:23,335 - __main__ - INFO - [backend_main.py:144] - ================================================================================
+2025-12-03 15:27:23,335 - __main__ - INFO - [backend_main.py:145] - Server ready to accept connections
+2025-12-03 15:27:23,335 - __main__ - INFO - [backend_main.py:146] - ================================================================================
+2025-12-03 15:27:24,207 - __main__ - INFO - [backend_main.py:151] - ================================================================================
+2025-12-03 15:27:24,207 - __main__ - INFO - [backend_main.py:152] - MEDICAL TRIAGE ASSISTANT - SHUTDOWN SEQUENCE
+2025-12-03 15:27:24,207 - __main__ - INFO - [backend_main.py:153] - ================================================================================
+2025-12-03 15:27:24,208 - __main__ - INFO - [backend_main.py:158] - Final Statistics:
+2025-12-03 15:27:24,208 - __main__ - INFO - [backend_main.py:159] -   - Total Requests: 8
+2025-12-03 15:27:24,208 - __main__ - INFO - [backend_main.py:160] -   - Average Latency: 0.008s
+2025-12-03 15:27:24,208 - __main__ - INFO - [backend_main.py:161] -   - Error Rate: 0.00%
+2025-12-03 15:27:24,209 - __main__ - INFO - [backend_main.py:165] - ✓ Metrics saved successfully
+2025-12-03 15:27:24,209 - __main__ - INFO - [backend_main.py:169] - ================================================================================
+2025-12-03 15:27:24,209 - __main__ - INFO - [backend_main.py:170] - Server shutdown complete
+2025-12-03 15:27:24,209 - __main__ - INFO - [backend_main.py:171] - ================================================================================
+2025-12-03 15:27:43,213 - triage_engine - INFO - [triage_engine.py:31] - Initializing AI-powered TriageEngine...
+2025-12-03 15:27:43,214 - ai_service - INFO - [ai_service.py:29] - AIService initialized with model: llama3.2
+2025-12-03 15:27:43,214 - triage_engine - INFO - [triage_engine.py:36] - ✓ Ollama AI service initialized
+2025-12-03 15:27:43,214 - vector_db_service - INFO - [vector_db_service.py:29] - Loading sentence transformer model...
+2025-12-03 15:27:43,215 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:219] - Use pytorch device_name: cpu
+2025-12-03 15:27:43,215 - sentence_transformers.SentenceTransformer - INFO - [SentenceTransformer.py:227] - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-12-03 15:27:46,298 - vector_db_service - INFO - [vector_db_service.py:169] - Vector database loaded: 10 documents
+2025-12-03 15:27:46,298 - vector_db_service - INFO - [vector_db_service.py:41] - VectorDB initialized with 10 documents
+2025-12-03 15:27:46,298 - triage_engine - INFO - [triage_engine.py:44] - ✓ FAISS vector database initialized
+2025-12-03 15:27:46,298 - graph_db_service - INFO - [graph_db_service.py:37] - Neo4j driver created (will initialize on first query)
+2025-12-03 15:27:46,299 - triage_engine - INFO - [triage_engine.py:57] - ✓ Neo4j graph database initialized
+2025-12-03 15:27:46,299 - triage_engine - INFO - [triage_engine.py:62] - TriageEngine initialization complete
+2025-12-03 15:27:46,300 - __main__ - INFO - [backend_main.py:39] - Services initialized successfully
+2025-12-03 15:27:46,305 - __main__ - INFO - [backend_main.py:411] - Created required directories: logs/, data/
+2025-12-03 15:27:46,305 - __main__ - INFO - [backend_main.py:416] - ================================================================================
+2025-12-03 15:27:46,306 - __main__ - INFO - [backend_main.py:417] - Starting Medical Triage Assistant API Server
+2025-12-03 15:27:46,306 - __main__ - INFO - [backend_main.py:418] - Environment: Development
+2025-12-03 15:27:46,306 - __main__ - INFO - [backend_main.py:419] - Python Version: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+2025-12-03 15:27:46,306 - __main__ - INFO - [backend_main.py:420] - Host: 0.0.0.0 | Port: 8000
+2025-12-03 15:27:46,306 - __main__ - INFO - [backend_main.py:421] - API Documentation: http://localhost:8000/docs
+2025-12-03 15:27:46,306 - __main__ - INFO - [backend_main.py:422] - ================================================================================
+2025-12-03 15:27:46,333 - __main__ - INFO - [backend_main.py:120] - ================================================================================
+2025-12-03 15:27:46,333 - __main__ - INFO - [backend_main.py:121] - MEDICAL TRIAGE ASSISTANT - STARTUP SEQUENCE
+2025-12-03 15:27:46,333 - __main__ - INFO - [backend_main.py:122] - ================================================================================
+2025-12-03 15:27:46,333 - __main__ - INFO - [backend_main.py:128] - ✓ Required directories validated
+2025-12-03 15:27:46,334 - __main__ - INFO - [backend_main.py:134] - ✓ Core services initialized successfully
+2025-12-03 15:27:46,334 - __main__ - INFO - [backend_main.py:135] -   - TriageEngine: Ready
+2025-12-03 15:27:46,334 - __main__ - INFO - [backend_main.py:136] -   - MonitoringService: Ready
+2025-12-03 15:27:46,334 - __main__ - INFO - [backend_main.py:141] - ✓ CORS configured for: http://localhost:3000
+2025-12-03 15:27:46,334 - __main__ - INFO - [backend_main.py:142] - ✓ API documentation: http://localhost:8000/docs
+2025-12-03 15:27:46,334 - __main__ - INFO - [backend_main.py:143] - ✓ History file: data\triage_history.json
+2025-12-03 15:27:46,334 - __main__ - INFO - [backend_main.py:144] - ================================================================================
+2025-12-03 15:27:46,334 - __main__ - INFO - [backend_main.py:145] - Server ready to accept connections
+2025-12-03 15:27:46,334 - __main__ - INFO - [backend_main.py:146] - ================================================================================
+2025-12-03 15:27:49,171 - __main__ - INFO - [backend_main.py:151] - ================================================================================
+2025-12-03 15:27:49,171 - __main__ - INFO - [backend_main.py:152] - MEDICAL TRIAGE ASSISTANT - SHUTDOWN SEQUENCE
+2025-12-03 15:27:49,171 - __main__ - INFO - [backend_main.py:153] - ================================================================================
+2025-12-03 15:27:49,171 - __main__ - INFO - [backend_main.py:158] - Final Statistics:
+2025-12-03 15:27:49,172 - __main__ - INFO - [backend_main.py:159] -   - Total Requests: 8
+2025-12-03 15:27:49,172 - __main__ - INFO - [backend_main.py:160] -   - Average Latency: 0.008s
+2025-12-03 15:27:49,172 - __main__ - INFO - [backend_main.py:161] -   - Error Rate: 0.00%
+2025-12-03 15:27:49,173 - __main__ - INFO - [backend_main.py:165] - ✓ Metrics saved successfully
+2025-12-03 15:27:49,174 - __main__ - INFO - [backend_main.py:169] - ================================================================================
+2025-12-03 15:27:49,174 - __main__ - INFO - [backend_main.py:170] - Server shutdown complete
+2025-12-03 15:27:49,174 - __main__ - INFO - [backend_main.py:171] - ================================================================================
