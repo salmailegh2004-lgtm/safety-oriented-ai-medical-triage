@@ -1,0 +1,62 @@
+{
+  "requests": [
+    {
+      "endpoint": "/triage",
+      "latency": 0.001421,
+      "status": "success",
+      "urgency_level": "urgence",
+      "timestamp": "2025-12-02T17:53:27.302643"
+    },
+    {
+      "endpoint": "/triage",
+      "latency": 0.00899,
+      "status": "success",
+      "urgency_level": "urgence",
+      "timestamp": "2025-12-02T17:53:29.350691"
+    },
+    {
+      "endpoint": "/triage",
+      "latency": 0.008285,
+      "status": "success",
+      "urgency_level": "consultation",
+      "timestamp": "2025-12-02T17:53:31.399235"
+    },
+    {
+      "endpoint": "/triage",
+      "latency": 0.009107,
+      "status": "success",
+      "urgency_level": "consultation",
+      "timestamp": "2025-12-02T17:53:33.451600"
+    },
+    {
+      "endpoint": "/triage",
+      "latency": 0.009662,
+      "status": "success",
+      "urgency_level": "auto-soin",
+      "timestamp": "2025-12-02T17:53:35.517402"
+    },
+    {
+      "endpoint": "/triage",
+      "latency": 0.00846,
+      "status": "success",
+      "urgency_level": "auto-soin",
+      "timestamp": "2025-12-02T17:53:37.575880"
+    },
+    {
+      "endpoint": "/triage",
+      "latency": 0.003058,
+      "status": "success",
+      "urgency_level": "auto-soin",
+      "timestamp": "2025-12-02T20:04:30.420221"
+    }
+  ],
+  "errors": [],
+  "urgency_distribution": {
+    "urgence": 2,
+    "consultation": 2,
+    "auto-soin": 3
+  },
+  "total_requests": 7,
+  "average_latency": 0.0069975714285714285,
+  "start_time": "2025-12-02T17:53:20.470486"
+}

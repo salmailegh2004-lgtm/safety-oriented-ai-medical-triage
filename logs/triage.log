@@ -1,0 +1,139 @@
+2025-12-02 17:52:24,875 - __main__ - INFO - Starting Medical Triage Assistant API...
+2025-12-02 17:53:20,473 - __main__ - INFO - Starting Medical Triage Assistant API...
+2025-12-02 17:53:27,301 - __main__ - INFO - Processing triage request: severe chest pain radiating to left arm, difficult...
+2025-12-02 17:53:27,303 - monitoring_service - INFO - Request logged: /triage - success (0.001s)
+2025-12-02 17:53:27,303 - __main__ - INFO - Triage completed: urgence (confidence: 0.90)
+2025-12-02 17:53:29,341 - __main__ - INFO - Processing triage request: sudden weakness on one side of body, slurred speec...
+2025-12-02 17:53:29,351 - monitoring_service - INFO - Request logged: /triage - success (0.009s)
+2025-12-02 17:53:29,351 - __main__ - INFO - Triage completed: urgence (confidence: 0.90)
+2025-12-02 17:53:31,391 - __main__ - INFO - Processing triage request: fever of 39 degrees for 3 days with cough...
+2025-12-02 17:53:31,399 - monitoring_service - INFO - Request logged: /triage - success (0.008s)
+2025-12-02 17:53:31,399 - __main__ - INFO - Triage completed: consultation (confidence: 0.70)
+2025-12-02 17:53:33,442 - __main__ - INFO - Processing triage request: infected wound with redness and swelling...
+2025-12-02 17:53:33,452 - monitoring_service - INFO - Request logged: /triage - success (0.009s)
+2025-12-02 17:53:33,452 - __main__ - INFO - Triage completed: consultation (confidence: 0.70)
+2025-12-02 17:53:35,507 - __main__ - INFO - Processing triage request: mild runny nose and slight sore throat...
+2025-12-02 17:53:35,517 - monitoring_service - INFO - Request logged: /triage - success (0.010s)
+2025-12-02 17:53:35,517 - __main__ - INFO - Triage completed: auto-soin (confidence: 0.70)
+2025-12-02 17:53:37,567 - __main__ - INFO - Processing triage request: mild headache, feeling tired...
+2025-12-02 17:53:37,576 - monitoring_service - INFO - Request logged: /triage - success (0.008s)
+2025-12-02 17:53:37,576 - __main__ - INFO - Triage completed: auto-soin (confidence: 0.70)
+2025-12-02 17:53:47,798 - __main__ - INFO - History cleared by user request (GDPR compliance)
+2025-12-02 19:45:54,693 - __main__ - INFO - Starting Medical Triage Assistant API...
+2025-12-02 19:47:10,471 - __main__ - INFO - Starting Medical Triage Assistant API...
+2025-12-02 19:53:48,741 - __main__ - INFO - Starting Medical Triage Assistant API...
+2025-12-02 20:04:30,417 - __main__ - INFO - Processing triage request: fever...
+2025-12-02 20:04:30,420 - monitoring_service - INFO - Request logged: /triage - success (0.003s)
+2025-12-02 20:04:30,421 - __main__ - INFO - Triage completed: auto-soin (confidence: 0.60)
+2025-12-02 20:50:52,766 - triage_engine - INFO - [triage_engine.py:48] - TriageEngine initialized with pattern-based rules
+2025-12-02 20:50:52,779 - __main__ - INFO - [backend_main.py:60] - Services initialized successfully
+2025-12-02 20:50:52,785 - __main__ - INFO - [backend_main.py:408] - Created required directories: logs/, data/
+2025-12-02 20:50:52,785 - __main__ - INFO - [backend_main.py:413] - ================================================================================
+2025-12-02 20:50:52,786 - __main__ - INFO - [backend_main.py:414] - Starting Medical Triage Assistant API Server
+2025-12-02 20:51:35,564 - triage_engine - INFO - [triage_engine.py:48] - TriageEngine initialized with pattern-based rules
+2025-12-02 20:51:35,565 - __main__ - INFO - [backend_main.py:61] - Services initialized successfully
+2025-12-02 20:51:35,570 - __main__ - INFO - [backend_main.py:409] - Created required directories: logs/, data/
+2025-12-02 20:51:35,571 - __main__ - INFO - [backend_main.py:414] - ================================================================================
+2025-12-02 20:51:35,571 - __main__ - INFO - [backend_main.py:415] - Starting Medical Triage Assistant API Server
+2025-12-02 20:51:35,571 - __main__ - INFO - [backend_main.py:416] - Environment: Development
+2025-12-02 20:51:35,571 - __main__ - INFO - [backend_main.py:417] - Python Version: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+2025-12-02 20:51:35,571 - __main__ - INFO - [backend_main.py:418] - Host: 0.0.0.0 | Port: 8000
+2025-12-02 20:51:35,572 - __main__ - INFO - [backend_main.py:419] - API Documentation: http://localhost:8000/docs
+2025-12-02 20:51:35,572 - __main__ - INFO - [backend_main.py:420] - ================================================================================
+2025-12-02 20:51:35,605 - __main__ - INFO - [backend_main.py:139] - ================================================================================
+2025-12-02 20:51:35,605 - __main__ - INFO - [backend_main.py:140] - MEDICAL TRIAGE ASSISTANT - STARTUP SEQUENCE
+2025-12-02 20:51:35,606 - __main__ - INFO - [backend_main.py:141] - ================================================================================
+2025-12-02 20:51:35,606 - __main__ - INFO - [backend_main.py:147] - ✓ Required directories validated
+2025-12-02 20:51:35,606 - __main__ - INFO - [backend_main.py:153] - ✓ Core services initialized successfully
+2025-12-02 20:51:35,606 - __main__ - INFO - [backend_main.py:154] -   - TriageEngine: Ready
+2025-12-02 20:51:35,606 - __main__ - INFO - [backend_main.py:155] -   - MonitoringService: Ready
+2025-12-02 20:51:35,606 - __main__ - INFO - [backend_main.py:160] - ✓ CORS configured for: http://localhost:3000
+2025-12-02 20:51:35,606 - __main__ - INFO - [backend_main.py:161] - ✓ API documentation: http://localhost:8000/docs
+2025-12-02 20:51:35,607 - __main__ - INFO - [backend_main.py:162] - ✓ History file: data\triage_history.json
+2025-12-02 20:51:35,607 - __main__ - INFO - [backend_main.py:163] - ================================================================================
+2025-12-02 20:51:35,607 - __main__ - INFO - [backend_main.py:164] - Server ready to accept connections
+2025-12-02 20:51:35,607 - __main__ - INFO - [backend_main.py:165] - ================================================================================
+2025-12-02 20:51:35,608 - __main__ - INFO - [backend_main.py:174] - ================================================================================
+2025-12-02 20:51:35,608 - __main__ - INFO - [backend_main.py:175] - MEDICAL TRIAGE ASSISTANT - SHUTDOWN SEQUENCE
+2025-12-02 20:51:35,608 - __main__ - INFO - [backend_main.py:176] - ================================================================================
+2025-12-02 20:51:35,608 - __main__ - INFO - [backend_main.py:181] - Final Statistics:
+2025-12-02 20:51:35,608 - __main__ - INFO - [backend_main.py:182] -   - Total Requests: 7
+2025-12-02 20:51:35,608 - __main__ - INFO - [backend_main.py:183] -   - Average Latency: 0.007s
+2025-12-02 20:51:35,608 - __main__ - INFO - [backend_main.py:184] -   - Error Rate: 0.00%
+2025-12-02 20:51:35,609 - __main__ - INFO - [backend_main.py:188] - ✓ Metrics saved successfully
+2025-12-02 20:51:35,609 - __main__ - INFO - [backend_main.py:192] - ================================================================================
+2025-12-02 20:51:35,609 - __main__ - INFO - [backend_main.py:193] - Server shutdown complete
+2025-12-02 20:51:35,609 - __main__ - INFO - [backend_main.py:194] - ================================================================================
+2025-12-02 20:52:21,184 - triage_engine - INFO - [triage_engine.py:48] - TriageEngine initialized with pattern-based rules
+2025-12-02 20:52:21,186 - __main__ - INFO - [backend_main.py:61] - Services initialized successfully
+2025-12-02 20:52:21,192 - __main__ - INFO - [backend_main.py:409] - Created required directories: logs/, data/
+2025-12-02 20:52:21,192 - __main__ - INFO - [backend_main.py:414] - ================================================================================
+2025-12-02 20:52:21,193 - __main__ - INFO - [backend_main.py:415] - Starting Medical Triage Assistant API Server
+2025-12-02 20:52:21,193 - __main__ - INFO - [backend_main.py:416] - Environment: Development
+2025-12-02 20:52:21,193 - __main__ - INFO - [backend_main.py:417] - Python Version: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+2025-12-02 20:52:21,193 - __main__ - INFO - [backend_main.py:418] - Host: 0.0.0.0 | Port: 8000
+2025-12-02 20:52:21,193 - __main__ - INFO - [backend_main.py:419] - API Documentation: http://localhost:8000/docs
+2025-12-02 20:52:21,194 - __main__ - INFO - [backend_main.py:420] - ================================================================================
+2025-12-02 20:52:21,230 - __main__ - INFO - [backend_main.py:139] - ================================================================================
+2025-12-02 20:52:21,230 - __main__ - INFO - [backend_main.py:140] - MEDICAL TRIAGE ASSISTANT - STARTUP SEQUENCE
+2025-12-02 20:52:21,230 - __main__ - INFO - [backend_main.py:141] - ================================================================================
+2025-12-02 20:52:21,231 - __main__ - INFO - [backend_main.py:147] - ✓ Required directories validated
+2025-12-02 20:52:21,231 - __main__ - INFO - [backend_main.py:153] - ✓ Core services initialized successfully
+2025-12-02 20:52:21,231 - __main__ - INFO - [backend_main.py:154] -   - TriageEngine: Ready
+2025-12-02 20:52:21,231 - __main__ - INFO - [backend_main.py:155] -   - MonitoringService: Ready
+2025-12-02 20:52:21,231 - __main__ - INFO - [backend_main.py:160] - ✓ CORS configured for: http://localhost:3000
+2025-12-02 20:52:21,231 - __main__ - INFO - [backend_main.py:161] - ✓ API documentation: http://localhost:8000/docs
+2025-12-02 20:52:21,232 - __main__ - INFO - [backend_main.py:162] - ✓ History file: data\triage_history.json
+2025-12-02 20:52:21,232 - __main__ - INFO - [backend_main.py:163] - ================================================================================
+2025-12-02 20:52:21,232 - __main__ - INFO - [backend_main.py:164] - Server ready to accept connections
+2025-12-02 20:52:21,232 - __main__ - INFO - [backend_main.py:165] - ================================================================================
+2025-12-02 20:52:41,643 - __main__ - INFO - [backend_main.py:351] - Metrics retrieved successfully
+2025-12-02 20:52:41,917 - __main__ - INFO - [backend_main.py:351] - Metrics retrieved successfully
+2025-12-02 20:56:45,317 - __main__ - INFO - [backend_main.py:174] - ================================================================================
+2025-12-02 20:56:45,317 - __main__ - INFO - [backend_main.py:175] - MEDICAL TRIAGE ASSISTANT - SHUTDOWN SEQUENCE
+2025-12-02 20:56:45,317 - __main__ - INFO - [backend_main.py:176] - ================================================================================
+2025-12-02 20:56:45,317 - __main__ - INFO - [backend_main.py:181] - Final Statistics:
+2025-12-02 20:56:45,318 - __main__ - INFO - [backend_main.py:182] -   - Total Requests: 7
+2025-12-02 20:56:45,318 - __main__ - INFO - [backend_main.py:183] -   - Average Latency: 0.007s
+2025-12-02 20:56:45,318 - __main__ - INFO - [backend_main.py:184] -   - Error Rate: 0.00%
+2025-12-02 20:56:45,319 - __main__ - INFO - [backend_main.py:188] - ✓ Metrics saved successfully
+2025-12-02 20:56:45,319 - __main__ - INFO - [backend_main.py:192] - ================================================================================
+2025-12-02 20:56:45,319 - __main__ - INFO - [backend_main.py:193] - Server shutdown complete
+2025-12-02 20:56:45,319 - __main__ - INFO - [backend_main.py:194] - ================================================================================
+2025-12-02 21:02:35,167 - triage_engine - INFO - [triage_engine.py:48] - TriageEngine initialized with pattern-based rules
+2025-12-02 21:02:35,168 - __main__ - INFO - [backend_main.py:61] - Services initialized successfully
+2025-12-02 21:02:35,174 - __main__ - INFO - [backend_main.py:409] - Created required directories: logs/, data/
+2025-12-02 21:02:35,174 - __main__ - INFO - [backend_main.py:414] - ================================================================================
+2025-12-02 21:02:35,175 - __main__ - INFO - [backend_main.py:415] - Starting Medical Triage Assistant API Server
+2025-12-02 21:02:35,175 - __main__ - INFO - [backend_main.py:416] - Environment: Development
+2025-12-02 21:02:35,175 - __main__ - INFO - [backend_main.py:417] - Python Version: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+2025-12-02 21:02:35,175 - __main__ - INFO - [backend_main.py:418] - Host: 0.0.0.0 | Port: 8000
+2025-12-02 21:02:35,175 - __main__ - INFO - [backend_main.py:419] - API Documentation: http://localhost:8000/docs
+2025-12-02 21:02:35,175 - __main__ - INFO - [backend_main.py:420] - ================================================================================
+2025-12-02 21:02:35,258 - __main__ - INFO - [backend_main.py:139] - ================================================================================
+2025-12-02 21:02:35,258 - __main__ - INFO - [backend_main.py:140] - MEDICAL TRIAGE ASSISTANT - STARTUP SEQUENCE
+2025-12-02 21:02:35,258 - __main__ - INFO - [backend_main.py:141] - ================================================================================
+2025-12-02 21:02:35,258 - __main__ - INFO - [backend_main.py:147] - ✓ Required directories validated
+2025-12-02 21:02:35,259 - __main__ - INFO - [backend_main.py:153] - ✓ Core services initialized successfully
+2025-12-02 21:02:35,259 - __main__ - INFO - [backend_main.py:154] -   - TriageEngine: Ready
+2025-12-02 21:02:35,259 - __main__ - INFO - [backend_main.py:155] -   - MonitoringService: Ready
+2025-12-02 21:02:35,259 - __main__ - INFO - [backend_main.py:160] - ✓ CORS configured for: http://localhost:3000
+2025-12-02 21:02:35,259 - __main__ - INFO - [backend_main.py:161] - ✓ API documentation: http://localhost:8000/docs
+2025-12-02 21:02:35,259 - __main__ - INFO - [backend_main.py:162] - ✓ History file: data\triage_history.json
+2025-12-02 21:02:35,259 - __main__ - INFO - [backend_main.py:163] - ================================================================================
+2025-12-02 21:02:35,259 - __main__ - INFO - [backend_main.py:164] - Server ready to accept connections
+2025-12-02 21:02:35,259 - __main__ - INFO - [backend_main.py:165] - ================================================================================
+2025-12-02 21:02:49,258 - __main__ - INFO - [backend_main.py:351] - Metrics retrieved successfully
+2025-12-02 21:02:49,260 - __main__ - INFO - [backend_main.py:351] - Metrics retrieved successfully
+2025-12-02 21:03:54,094 - __main__ - INFO - [backend_main.py:351] - Metrics retrieved successfully
+2025-12-02 21:03:54,095 - __main__ - INFO - [backend_main.py:351] - Metrics retrieved successfully
+2025-12-02 21:03:58,306 - __main__ - INFO - [backend_main.py:351] - Metrics retrieved successfully
+2025-12-02 21:03:58,308 - __main__ - INFO - [backend_main.py:351] - Metrics retrieved successfully
+2025-12-02 21:05:50,399 - __main__ - INFO - [backend_main.py:351] - Metrics retrieved successfully
+2025-12-02 21:05:51,270 - __main__ - INFO - [backend_main.py:351] - Metrics retrieved successfully
+2025-12-02 21:06:09,137 - __main__ - INFO - [backend_main.py:351] - Metrics retrieved successfully
+2025-12-02 21:06:09,952 - __main__ - INFO - [backend_main.py:351] - Metrics retrieved successfully
+2025-12-02 21:06:26,602 - __main__ - INFO - [backend_main.py:351] - Metrics retrieved successfully
+2025-12-02 21:06:26,958 - __main__ - INFO - [backend_main.py:351] - Metrics retrieved successfully
+2025-12-02 21:06:30,420 - __main__ - INFO - [backend_main.py:351] - Metrics retrieved successfully
+2025-12-02 21:06:30,951 - __main__ - INFO - [backend_main.py:351] - Metrics retrieved successfully
