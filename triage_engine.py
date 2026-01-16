@@ -60,7 +60,7 @@ class TriageEngine:
             self.graph_db = None
         
         logger.info("TriageEngine initialization complete")
-
+        self.cache = {}
     def analyze(
         self, 
         symptoms: str, 
@@ -84,7 +84,9 @@ class TriageEngine:
         relevant_knowledge = []
         if self.vector_db:
             try:
-                relevant_knowledge = self.vector_db.get_relevant_knowledge(symptoms, k=3)
+                relevant_knowledge = []
+                if self.vector_db and len(symptoms.split()) > 6:
+                 relevant_knowledge = self.vector_db.get_relevant_knowledge(symptoms, k=2)
                 logger.info(f"Retrieved {len(relevant_knowledge)} relevant documents from vector DB")
             except Exception as e:
                 logger.warning(f"Vector DB query failed: {e}")
@@ -124,22 +126,24 @@ class TriageEngine:
                 logger.error(f"AI analysis failed: {e}")
         
         # Fallback: Use graph insights if available
-        if graph_insights:
-            top_match = graph_insights[0]
-            return {
-                "urgency_level": top_match["urgency"],
-                "confidence": top_match["confidence"],
-                "advice": f"Based on knowledge graph: {top_match['disease']} detected. Please consult a healthcare professional for proper evaluation.",
-                "detected_symptoms": [symptoms[:100]]
-            }
-        
-        # Final fallback: Safe default
-        return {
-            "urgency_level": "MODERATE",
-            "confidence": 0.5,
-            "advice": "Unable to analyze with AI. Please consult a healthcare professional for proper evaluation of your symptoms.",
-            "detected_symptoms": [symptoms[:100]]
+        # =========================
+
+                if graph_insights:
+                    top = graph_insights[0]
+                    if top["confidence"] >= 0.6:
+                        result = {
+            "urgency_level": top["urgency"],
+            "confidence": top["confidence"],
+            "advice": (
+                f"Based on detected symptoms, {top['disease']} is a possibility. "
+                "Please consult a healthcare professional."
+            ),
+            "detected_symptoms": symptoms.split()[:5]
         }
+
+        # cache result
+        self.cache[symptoms.lower().strip()] = result
+        return result
 
     def chat(self, message: str) -> str:
         """
